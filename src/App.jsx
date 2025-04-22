@@ -1,29 +1,24 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Text from './components/Text';
 import Button from './components/Button';
 
 function App() {
 
-  //props
+  //HOOKS...
+  //useState, useEffect, useContext, 
 
+  const [name, setName] = React.useState("React");
+
+  const clickFunc = () => {
+    console.log("Click");
+    setName("React has been changed");
+  }
 
   return (
     <>
-      <div>
-        react egitimi 1
+      <div onClick={clickFunc}>
+        {name}
       </div>
-      <div>
-        react egitimi 1
-      </div>
-      <div>
-        react egitimi 1
-      </div>
-      <Text number="1" name="React"/>
-      <Button name={"artir"}/>
-      <Text number="2" name="Javascript"/>
-      <Button name={"azalt"}/>
-      <Text number="3" name="Python"/>
-      <Button name={"sabit birak"}/>
     </>
     
   )
