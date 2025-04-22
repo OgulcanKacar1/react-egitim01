@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Text = () => {
+const Text = ({number, name}) => {
+    console.log(number,"number");
+    console.log(name,"name");
   return (
     <div>
-      React 1 Egitimine Hoşgeldiniz
+      {name} {number} Egitimine Hoşgeldiniz
     </div>
   )
 }
