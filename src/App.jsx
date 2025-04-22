@@ -7,7 +7,7 @@ function App() {
   //onClick, onChange
 
   const[name, setName] = useState(null);
-  const[data, setData] = useState(null);
+  const[data, setData] = useState([]);
 
   console.log(name,"name");
   
@@ -15,14 +15,18 @@ function App() {
     setName(e.target.value);
   }
   const clickFunc = () =>{
-    setData(name);
+    setData(prev=>([...prev,name]));
   }
+
+  console.log(data,"data");
   return (
     <>
       <input type="text" onChange={targetFunc} />
       <button onClick={clickFunc}>Click me</button>
       <div>
-        {data}
+        {data.map((item, index) => (
+          <Text key={index} name={item} />
+        ))}
       </div>
     </>
     
