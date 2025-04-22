@@ -7,18 +7,14 @@ function App() {
   //HOOKS...
   //useState, useEffect, useContext, 
 
-  const [name, setName] = React.useState("React");
-
-  const clickFunc = () => {
-    console.log("Click");
-    setName("React has been changed");
-  }
+  const[count, setCount] = useState(0);
+  
 
   return (
     <>
-      <div onClick={clickFunc}>
-        {name}
-      </div>
+      <Button name={"Azalt"} onClick={()=> setCount(count-1)}/>
+      <div>{count}</div>
+      <Button name={"Arttir"} onClick={()=> setCount(count+1)} />
     </>
     
   )
