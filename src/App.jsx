@@ -4,17 +4,26 @@ import Button from './components/Button';
 
 function App() {
 
-  //HOOKS...
-  //useState, useEffect, useContext, 
+  //onClick, onChange
 
-  const[count, setCount] = useState(0);
+  const[name, setName] = useState(null);
+  const[data, setData] = useState(null);
+
+  console.log(name,"name");
   
-
+  const targetFunc = (e) => {
+    setName(e.target.value);
+  }
+  const clickFunc = () =>{
+    setData(name);
+  }
   return (
     <>
-      <Button name={"Azalt"} onClick={()=> setCount(count-1)}/>
-      <div>{count}</div>
-      <Button name={"Arttir"} onClick={()=> setCount(count+1)} />
+      <input type="text" onChange={targetFunc} />
+      <button onClick={clickFunc}>Click me</button>
+      <div>
+        {data}
+      </div>
     </>
     
   )
