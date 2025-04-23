@@ -1,35 +1,25 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import Text from './components/Text';
 import Button from './components/Button';
 
 function App() {
 
-  //onClick, onChange
+  //useEffect 
 
-  const[name, setName] = useState(null);
-  const[data, setData] = useState([]);
+  const[name, setName] = useState("react");
 
-  console.log(name,"name");
-  
-  const targetFunc = (e) => {
-    setName(e.target.value);
-  }
-  const clickFunc = () =>{
-    setData(prev=>([...prev,name]));
-  }
+  useEffect(() => {
+    setTimeout(() =>{
+      setName("react guncellendi");
+    }, 4000)
+    
+  }, [])
 
-  console.log(data,"data");
+
   return (
     <>
-      <input type="text" onChange={targetFunc} />
-      <button onClick={clickFunc}>Click me</button>
-      <div>
-        {data.map((item, index) => (
-          <Text key={index} name={item} />
-        ))}
-      </div>
+      {name}
     </>
-    
   )
 }
 
