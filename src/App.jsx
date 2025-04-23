@@ -1,24 +1,23 @@
-import React,{useState, useEffect} from 'react';
-import Text from './components/Text';
-import Button from './components/Button';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+
+import Home from './pages/Home'
+import Detail from './pages/Detail'
 
 function App() {
 
-  //useEffect 
-
-  const[name, setName] = useState("react");
-
-  useEffect(() => {
-    setTimeout(() =>{
-      setName("react guncellendi");
-    }, 4000)
-    
-  }, [])
-
-
   return (
     <>
-      {name}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/detail" element={<Detail />}/>
+        </Routes>
+      </Router>
     </>
   )
 }
